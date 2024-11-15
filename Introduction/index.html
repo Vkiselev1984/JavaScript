@@ -1,24 +1,76 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-        <title>Document</title>
+    <title>JS examples</title>
 </head>
-<body>
-    <h1>Тест на характер по цветам</h1>
-    <label for="colorSelect">Выберите свой любимый цвет:</label>
-    <select id="colorSelect">
-        <option value="red">Красный</option>
-        <option value="blue">Синий</option>
-        <option value="green">Зеленый</option>
-        <option value="yellow">Желтый</option>
-    </select>
-    <br>
-    <button id="showCharacterBtn">Узнать характер</button>
 
-    <div id="characterResult"></div>
-    <script src="JS/simple_one.js"></script>
+<body>
+    <div class="character-test">
+        <h3 class="character-test__task">Example 1: create a drop-down list that displays information when you click on
+            the
+            elements</h3>
+        <h4 class="character-test__title">Personality Test by Colors</h4>
+        <label class="character-test__label" for="colorSelect">Choose your favorite color:</label>
+        <select class="character-test__select" id="colorSelect">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="yellow">Yellow</option>
+        </select>
+        <br>
+        <button class="character-test__button" id="showCharacterBtn">Find out the character</button>
+        <div class="character-test__result" id="characterResult"></div>
+    </div>
+
+    <h2>Arrays</h2>
+    <div class="arrays">
+        <h3 class="arrays__task">Example 2: create an array of 3 elements and display each on the screen. Create a
+            second array
+            with elements whose number should be displayed on the screen. Write the values ​​of the elements of the
+            second array to the elements of the first array corresponding by index, display the resulting array on the
+            screen.</h3>
+        <h4 class="arrays__title">First array <span class="arrays__length" id="first-array-length"></span></h4>
+        <ul class="arrays__list" id="first-array"></ul>
+        <h4 class="arrays__title">Second array <span class="arrays__length" id="second-array-length"></span></h4>
+        <ul class="arrays__list" id="second-array"></ul>
+        <button class="arrays__button" id="merge-button">Merge array with replacement</button>
+        <h4 class="arrays__title">Result <span class="arrays__length" id="merged-array-length"></span></h4>
+        <ul class="arrays__list" id="merged-array"></ul>
+        <div class="arrays__remaining" id="remaining-elements"></div>
+    </div>
+    <div class="number-info">
+        <h3 class="number-info__title">Example 3: using a for loop, print 11 lines to the console, where each line
+            contains the index and description
+            of
+            a number (0 is zero, 1 is an odd number, 2 is an even number, etc.).</h3>
+        <div class="number-info__output"></div>
+        <button class="number-info__button">Show numbers</button>
+    </div>
+
+    <div class="remove-number">
+        <h3 class="remove-number__title">Example 4: you have an array [1, 2, 3, 4, 5, 6, 7]. You need to remove elements
+            4 and 5 to
+            get an array [1, 2, 3, 6, 7].</h3>
+        <h4>Array: <span id="array-display"></span></h4>
+        <button class="remove-number__button">Delete items 4 and 5</button>
+    </div>
+    <div class="random_numbers">
+        <h3 class="random_numbers__title">Example 5: description of the task:</h3>
+        <ol>
+            <li>Generate an array of 5 random digits from 0 to 9.</li>
+            <li>Calculate the sum of the array elements.</li>
+            <li>Find the minimum number in the array.</li>
+            <li>Determine if the array contains the number 3.</li>
+        </ol>
+        <div class="random_numbers__result"></div>
+        <button class="random_numbers__button">Generate random numbers</button>
+    </div>
+    <script src="JS/testByColors.js"></script>
+    <script src="JS/arrays.js"></script>
 </body>
+
 </html>
