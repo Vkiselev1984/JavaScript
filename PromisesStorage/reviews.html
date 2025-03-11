@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product reviews</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .product {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .review {
+            margin: 5px 0;
+            padding: 5px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Add a product review</h1>
+    <div>
+        <input type="text" id="productName" placeholder="Product Name" />
+        <textarea id="reviewText" rows="4" cols="50" placeholder="Your review"></textarea><br>
+        <button id="addReviewButton">Add a review</button>
+        <div id="errorMessage" class="error"></div>
+    </div>
+
+    <h1>List of reviews</h1>
+    <div id="productList"></div>
+
+    <script>
+        function loadReviews() {
+            const reviews = JSON.parse(localStorage.getItem('productReviews')) || {};
+            const productList = document.getElementById('productList');
+            productList.innerHTML = '';
+
+            for (const product in reviews) {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product';
+                productDiv.innerHTML = `<strong>${product}</strong>
+ <button onclick="deleteProduct('${product}')">Delete product</button>`;
+
+                reviews[product].forEach((review, index) => {
+                    const reviewDiv = document.createElement('div');
+                    reviewDiv.className = 'review';
+                    reviewDiv.innerHTML = `${review}
+ <button onclick="deleteReview('${product}', ${index})">Delete</button>`;
+                    productDiv.appendChild(reviewDiv);
+                });
+                productList.appendChild(productDiv);
+            }
+        }
+
+        document.getElementById('addReviewButton').addEventListener('click', () => {
+            const productName = document.getElementById('productName').value;
+            const reviewText = document.getElementById('reviewText').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (!productName || !reviewText) {
+                errorMessage.textContent = "Please fill in all fields.";
+                return;
+            }
+
+            errorMessage.textContent = "";
+
+            const reviews = JSON.parse(localStorage.getItem('productReviews')) || {};
+            if (!reviews[productName]) {
+                reviews[productName] = [];
+            }
+            reviews[productName].push(reviewText);
+
+            localStorage.setItem('productReviews', JSON.stringify(reviews));
+            document.getElementById('productName').value = '';
+            document.getElementById('reviewText').value = '';
+            loadReviews();
+        });
+
+        function deleteReview(product, index) {
+            const reviews = JSON.parse(localStorage.getItem('productReviews'));
+            reviews[product].splice(index, 1);
+
+            if (reviews[product].length === 0) {
+                delete reviews[product];
+            }
+
+            localStorage.setItem('productReviews', JSON.stringify(reviews));
+            loadReviews();
+        }
+
+        function deleteProduct(product) {
+            const reviews = JSON.parse(localStorage.getItem('productReviews'));
+            delete reviews[product];
+
+            localStorage.setItem('productReviews', JSON.stringify(reviews));
+            loadReviews();
+        }
+
+        loadReviews();
+    </script>
+</body>
+
+</html>

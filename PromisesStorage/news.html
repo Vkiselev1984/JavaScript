@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading news</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #newsContainer {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>News</h1>
+    <button id="loadNewsButton">Load news</button>
+    <div id="newsContainer"></div>
+    <div id="errorMessage" class="error"></div>
+
+    <script>
+
+        const newsDatabase = [
+            { title: "First news", content: "Contents of the first news." },
+            { title: "Second news", content: "Contents of the second news." },
+            { title: "Third news", content: "Contents of the third news." },
+        ];
+
+
+        function fetchNews() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (Math.random() < 0.1) {
+                        reject(new Error("Failed to load news. Try again later."));
+                    } else {
+                        resolve(newsDatabase);
+                    }
+                }, 2000);
+            });
+        }
+
+        function displayNews(news) {
+            const newsContainer = document.getElementById('newsContainer');
+            newsContainer.innerHTML = '';
+            news.forEach(article => {
+                const articleElement = document.createElement('div');
+                articleElement.innerHTML = `<h3>${article.title}</h3><p>${article.content}</p>`;
+                newsContainer.appendChild(articleElement);
+            });
+        }
+
+        document.getElementById('loadNewsButton').addEventListener('click', () => {
+            const button = document.getElementById('loadNewsButton');
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = '';
+            button.disabled = true;
+
+            fetchNews()
+                .then(news => {
+                    displayNews(news);
+                })
+                .catch(error => {
+                    errorMessage.textContent = error.message;
+                })
+                .finally(() => {
+                    button.disabled = false;
+                });
+        });
+    </script>
+</body>
+
+</html>

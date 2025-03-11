@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive web page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Saving text to localStorage</h1>
+    <textarea id="textInput" rows="4" cols="50" placeholder="Enter text"></textarea><br>
+    <button id="saveButton">Save</button>
+    <button id="loadButton">Load</button>
+    <button id="clearButton">Clear</button>
+    <div id="message"></div>
+
+    <script>
+        const textInput = document.getElementById('textInput');
+        const saveButton = document.getElementById('saveButton');
+        const loadButton = document.getElementById('loadButton');
+        const clearButton = document.getElementById('clearButton');
+        const message = document.getElementById('message');
+
+        saveButton.addEventListener('click', () => {
+            const text = textInput.value;
+            if (text) {
+                localStorage.setItem('savedText', text);
+                message.textContent = "Text saved!";
+                textInput.value = '';
+            } else {
+                message.textContent = "Enter text to save.";
+            }
+        });
+
+        loadButton.addEventListener('click', () => {
+            const savedText = localStorage.getItem('savedText');
+            if (savedText) {
+                textInput.value = savedText;
+                message.textContent = "Text loaded!";
+            } else {
+                message.textContent = "No saved text.";
+            }
+        });
+
+        clearButton.addEventListener('click', () => {
+            localStorage.removeItem('savedText');
+            message.textContent = "Saved text removed.";
+            textInput.value = '';
+        });
+    </script>
+</body>
+
+</html>
