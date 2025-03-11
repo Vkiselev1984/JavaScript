@@ -1,4 +1,4 @@
-# Wprowadzenie do DOM (Document Object Model)
+# Introduction to DOM (Document Object Model)
 
 The document loaded in each browser tab is represented by the Document Object Model (DOM).
 
