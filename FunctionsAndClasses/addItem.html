@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding items to a list</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #itemList {
+            margin-top: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #itemList li {
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Adding items to the list</h1>
+    <input type="text" id="itemInput" placeholder="Enter an item (3-10 characters)" />
+    <button id="addButton">Add</button>
+    <ul id="itemList"></ul>
+    <div id="errorMessage" class="error"></div>
+
+    <script>
+        function addItem() {
+            const input = document.getElementById('itemInput').value;
+            const itemList = document.getElementById('itemList');
+            const errorMessage = document.getElementById('errorMessage');
+
+            try {
+                if (input.length < 3 || input.length > 10) {
+                    throw new Error("The length of the input value must be between 3 and 10 characters.");
+                }
+
+                const listItem = document.createElement('li');
+                listItem.textContent = input;
+
+                itemList.appendChild(listItem);
+
+                document.getElementById('itemInput').value = '';
+                errorMessage.textContent = '';
+            } catch (error) {
+                errorMessage.textContent = error.message;
+            }
+        }
+
+        document.getElementById('addButton').addEventListener('click', addItem);
+    </script>
+</body>
+
+</html>

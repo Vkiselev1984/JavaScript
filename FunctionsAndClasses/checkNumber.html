@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checking numbers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Checking a number</h1>
+    <input type="text" id="numberInput" placeholder="Enter a number" />
+    <button id="checkButton">Check</button>
+    <div id="message"></div>
+
+    <script>
+        function checkNumber() {
+            const input = document.getElementById('numberInput').value;
+            const messageDiv = document.getElementById('message');
+
+            try {
+                const number = Number(input);
+
+                if (isNaN(number)) {
+                    throw new Error("The entered value is not a number.");
+                }
+
+                messageDiv.textContent = `You entered a number: ${number}`;
+            } catch (error) {
+                messageDiv.textContent = error.message;
+            }
+        }
+
+        document.getElementById('checkButton').addEventListener('click', checkNumber);
+    </script>
+</body>
+
+</html>

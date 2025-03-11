@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback system</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #reviewsContainer {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .review {
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Product Reviews</h1>
+    <textarea id="reviewInput" placeholder="Enter your review (50 to 500 characters)" rows="4" cols="50"></textarea>
+    <br>
+    <button id="submitReviewButton">Submit Review</button>
+    <div id="errorMessage" class="error"></div>
+    <div id="reviewsContainer"></div>
+
+    <script>
+        const initialData = [
+            {
+                product: "Apple iPhone 13",
+                reviews: [
+                    { id: "1", text: "Great phone! The battery lasts a long time." },
+                    { id: "2", text: "The camera is super, the photos look amazing." },
+                ],
+            },
+            {
+                product: "Samsung Galaxy Z Fold 3",
+                reviews: [
+                    { id: "3", text: "Interesting design, but expensive." },
+                ],
+            },
+            {
+                product: "Sony PlayStation 5",
+                reviews: [
+                    { id: "4", text: "I love playing on PS5, the graphics are great." },
+                ],
+            },
+        ];
+
+        function displayReviews() {
+            const reviewsContainer = document.getElementById('reviewsContainer');
+            reviewsContainer.innerHTML = '';
+
+            initialData.forEach(product => {
+                product.reviews.forEach(review => {
+                    const reviewElement = document.createElement('div');
+                    reviewElement.className = 'review';
+                    reviewElement.textContent = review.text;
+                    reviewsContainer.appendChild(reviewElement);
+                });
+            });
+        }
+
+        function addReview() {
+            const input = document.getElementById('reviewInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            try {
+                if (input.length < 50 || input.length > 500) {
+                    throw new Error("Review length must be between 50 and 500 characters.");
+                }
+
+                const newReviewId = (initialData.flatMap(product => product.reviews).length + 1).toString();
+                initialData[0].reviews.push({ id: newReviewId, text: input });
+
+                document.getElementById('reviewInput').value = '';
+                errorMessage.textContent = '';
+
+                displayReviews();
+            } catch (error) {
+                errorMessage.textContent = error.message;
+            }
+        }
+
+        document.getElementById('submitReviewButton').addEventListener('click', addReview);
+
+        displayReviews();
+    </script>
+</body>
+
+</html>
