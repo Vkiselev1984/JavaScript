@@ -1,4 +1,4 @@
-## Task 1
+# Task 1
 
 Let's create a class to manage a bank account. This class will have a private property to store the current balance, and methods to deposit and withdraw money from the account.
 
@@ -13,7 +13,7 @@ Let's create a class to manage a bank account. This class will have a private pr
 5. Implement a constructor that takes the initial balance as an argument.
    Make sure the initial balance is not negative; otherwise throw an error.
 
-### Solution
+## Solution
 
 ```javascript
 class BankAccount {
