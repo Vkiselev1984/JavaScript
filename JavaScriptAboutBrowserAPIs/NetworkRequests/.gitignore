@@ -1,7 +1,7 @@
 # Node.js dependencies
 node_modules/
 
-config.js
+./public/config.js
 
 # Logs
 logs
