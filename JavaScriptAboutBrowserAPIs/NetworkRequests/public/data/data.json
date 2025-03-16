@@ -1,0 +1,44 @@
+{
+  "history": [
+    {
+      "id": "-NEGehNFXF0",
+      "title": "A waterfall on the side of a cliff next to the ocean",
+      "imageUrl": "https://images.unsplash.com/photo-1739531944447-2c68bc64d728?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NzE2NjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDIxMDk1MDN8&ixlib=rb-4.0.3&q=80&w=1080",
+      "photographer": "Reinaldo Photography",
+      "photographerUrl": "https://unsplash.com/@reinaldogaranito",
+      "downloadUrl": "https://unsplash.com/photos/a-waterfall-on-the-side-of-a-cliff-next-to-the-ocean--NEGehNFXF0"
+    },
+    {
+      "id": "EgV9joDxbj0",
+      "title": "A tall building with lots of windows next to it",
+      "imageUrl": "https://images.unsplash.com/photo-1739732106770-690d3d544bf8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NzE2NjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDIxMDk1NDZ8&ixlib=rb-4.0.3&q=80&w=1080",
+      "photographer": "Lucas Gallone",
+      "photographerUrl": "https://unsplash.com/@lucasgallone",
+      "downloadUrl": "https://unsplash.com/photos/a-tall-building-with-lots-of-windows-next-to-it-EgV9joDxbj0"
+    },
+    {
+      "id": "OwspI3jtukk",
+      "title": "A dog standing in the middle of a forest",
+      "imageUrl": "https://images.unsplash.com/photo-1734630378523-c6735d798820?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NzE2NjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDIxMDk1NDh8&ixlib=rb-4.0.3&q=80&w=1080",
+      "photographer": "Filip Kvasnak",
+      "photographerUrl": "https://unsplash.com/@filipkvasnak",
+      "downloadUrl": "https://unsplash.com/photos/a-dog-standing-in-the-middle-of-a-forest-OwspI3jtukk"
+    },
+    {
+      "id": "MACB-0WbabY",
+      "title": "Staircase with handrails and light and shadows.",
+      "imageUrl": "https://images.unsplash.com/photo-1741720253113-1bea4d5686a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NzE2NjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDIxMDk2MjR8&ixlib=rb-4.0.3&q=80&w=1080",
+      "photographer": "Brandon Griggs",
+      "photographerUrl": "https://unsplash.com/@paralitik",
+      "downloadUrl": "https://unsplash.com/photos/staircase-with-handrails-and-light-and-shadows-MACB-0WbabY"
+    },
+    {
+      "id": "QzEL6ruC-SM",
+      "title": "A white can with a spoon inside of it",
+      "imageUrl": "https://images.unsplash.com/photo-1734671243484-2ee792c73bbb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1NzE2NjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDIxMDk2Mjd8&ixlib=rb-4.0.3&q=80&w=1080",
+      "photographer": "Dima Solomin",
+      "photographerUrl": "https://unsplash.com/@solomin",
+      "downloadUrl": "https://unsplash.com/photos/a-white-can-with-a-spoon-inside-of-it-QzEL6ruC-SM"
+    }
+  ]
+}
