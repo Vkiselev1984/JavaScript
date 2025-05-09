@@ -367,3 +367,123 @@ document.documentElement.parentElement // null
 (document.documentElement.parentNode === document) // true
 (document.documentElement.parentElement === document) // false
 ```
+
+## Assignment to consolidate the material
+
+In this task, you will perform various manipulations with elements on a web page using JavaScript and the Document Object Model (DOM). Below is
+task list
+Given [HTML](./homework.html)
+
+#### Tasks:
+
+1. Add another class super-dropdown to all elements with the dropdown-item class. Use the forEach and querySelectorAll methods, as well as the classList property of the elements.
+2. Remove the btn-secondary class from the element with the btn class, if it is present for this element, or add it if the element did not have such a class.
+3. Remove the dropdown-menu class from the element with the menu class.
+4. Using the insertAdjacentHTML method, add the following markup after the div with the dropdown class: <a href="#">link</a>.
+5. Replace id with superDropdown for the element with id="dropdownMenuButton".
+6. Add a data-dd attribute with a value of 3 to the element that has an aria-labelledby attribute equal to dropdownMenuButton using dataset.
+7. Remove the type attribute from the element with the dropdown-toggle class.
+
+#### Solution ([Js-code](./js/homework.js)):
+
+1. Add the "super-dropdown" class to all elements with the "dropdown-item" class
+
+We use querySelectorAll to get all elements with the dropdown-item class:
+
+```JavaScript
+const dropdownItems = document.querySelectorAll('.dropdown-item');
+```
+
+Then we use forEach to add a new super-dropdown class to each element:
+
+```JavaScript
+dropdownItems.forEach(item => {
+    item.classList.add('super-dropdown');
+});
+```
+
+2. Switching the btn-secondary class:
+
+Find an element with the btn class and check if it has the btn-secondary class:
+
+```JavaScript
+const btnElement = document.querySelector('.btn');
+if (btnElement.classList.contains('btn-secondary')) {
+
+}
+```
+
+If it does, remove it:
+
+```JavaScript
+btnElement.classList.remove('btn-secondary');
+```
+
+If not, add it:
+
+```JavaScript
+btnElement.classList.add('btn-secondary');
+```
+
+3. Removing the dropdown-menu class:
+
+Find the element with the menu class:
+
+```JavaScript
+const menuElement = document.querySelector('.menu');
+```
+
+And remove the dropdown-menu class from it, if it exists.
+
+```JavaScript
+if (menuElement) {
+    menuElement.classList.remove('dropdown-menu');
+}
+```
+
+4. Adding HTML markup
+
+Using insertAdjacentHTML, add a new link <a href="#">link</a> right after the element with the dropdown class:
+
+```JavaScript
+const dropdownDiv = document.querySelector('.dropdown');
+dropdownDiv.insertAdjacentHTML('afterend', '<a href="#">link</a>');
+```
+
+5. Replacing the id
+
+Find the element with the id dropdownMenuButton:
+
+```JavaScript
+const dropdownButton = document.getElementById('dropdownMenuButton');
+```
+
+Replace its id with superDropdown:
+
+```JavaScript
+if (dropdownButton) {
+    dropdownButton.id = 'superDropdown';
+}
+```
+
+6. Adding the data-dd attribute
+
+Find the element with the aria-labelledby attribute equal to dropdownMenuButton and add a new data-dd attribute with the value 3 to it.
+
+```JavaScript
+const ariaElement = document.querySelector('[aria-labelledby="dropdownMenuButton"]');
+if (ariaElement) {
+    ariaElement.dataset.dd = '3';
+}
+```
+
+7. Removing the type attribute
+
+Find the element with the dropdown-toggle class and remove its type attribute.
+
+```JavaScript
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+if (dropdownToggle) {
+    dropdownToggle.removeAttribute('type');
+}
+```
