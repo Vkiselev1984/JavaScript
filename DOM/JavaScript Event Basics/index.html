@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+
+<body>
+
+    <!-- <section id="example_one">
+        <button>Click me!</button>
+        <script>
+            const button = document.querySelector('button')
+            button.onclick = (event) => {
+                console.log(event.target === button)
+            }
+        </script>
+    </section> -->
+
+    <!-- <section id="example_two">
+        <button>Click me!</button>
+        <script>
+            const button = document.querySelector('button')
+            const listener = (event) => {
+                switch (event.eventPhase) {
+                    case Event.CAPTURING_PHASE: {
+                        console.log('Will be called during the capturing phase')
+                        break
+                    }
+                    case Event.BUBBLING_PHASE: {
+                        console.log('Will be called during the bubbling phase')
+                        break
+                    }
+                    case Event.AT_TARGET: {
+                        console.log('Will be called in the target phase')
+                        break
+                    }
+                }
+            }
+            document.addEventListener('click', listener) // Bubbling phase
+            document.addEventListener('click', listener, true) // Capture phase (capturing phase)
+            document.addEventListener('click', listener, { capture: true }) // Capture phase (capturing phase)
+            button.addEventListener('click', listener) // Target phase
+        </script>
+    </section> -->
+
+    <!-- <section id="example_three">
+        <ul>
+            <li>First</li>
+            <li>Second</li>
+            <li>Third</li>
+        </ul>
+        <script>
+            const list = document.querySelector("ul");
+            const listener = (e) => {
+                console.log(e.target, e.currentTarget);
+            };
+            list.addEventListener("click", listener)
+            [("fourth", "fifth")].forEach((text) => {
+                const listItem = document.createElement("li");
+                listItem.append(text);
+                list.append(listItem);
+            });
+        </script>
+    </section> -->
+
+    <!-- Practice one
+
+    <button class="button">Click me!</button>
+    <script>
+        const buttonEl = document.querySelector('.button');
+        const bodyEl = document.querySelector('body');
+
+
+        buttonEl.addEventListener('click', (e) => {
+            console.log(e.target, e.currentTarget, e.bubbles, e.cancelable, e.cancelBubble);
+        });
+
+        bodyEl.onload = function () {
+            console.log('Loaded');
+        }
+
+        window.addEventListener('load', (event) => {
+            console.log('Loaded');
+        });
+
+        buttonEl.onclick = (e) => {
+            console.log('Clicked');
+        }
+
+
+    </script> -->
+
+    <!-- Practice two
+
+    <button class="button">1</button>
+    <button class="button">2</button>
+    <button class="button">3</button>
+    <button class="button-two">4</button>
+    <button class="button-three">5</button>
+    <script>
+        const buttons = document.querySelectorAll('.button');
+        buttons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                console.log(e.currentTarget);
+            });
+        });
+
+        const buttonTwo = document.querySelector('.button-two');
+        let count = 0;
+        buttonTwo.addEventListener('click', (e) => {
+            console.log(++count);
+        });
+
+        const buttonThree = document.querySelector('.button-three');
+        buttonThree.addEventListener('click', (e) => {
+            buttonThree.textContent = 'You clicked on this button';
+        });
+
+    </script> -->
+
+    <!-- Practice three
+
+    <button class="button">Add heading!</button>
+    <h1 class="heading"></h1>
+
+    <script>
+        const button = document.querySelector('.button');
+        const heading = document.querySelector('.heading');
+        button.addEventListener('click', (e) => {
+            heading.insertAdjacentHTML('afterend', '<h1 class="new-heading">New heading</h1>');
+        });
+    </script>
+
+    <button class="delete-button">Delete heading!</button>
+
+    <script>
+        const buttonDel = document.querySelector('.delete-button');
+        buttonDel.addEventListener('click', (e) => {
+            const newHeading = document.querySelector('.new-heading');
+            if (newHeading) {
+                newHeading.remove();
+            }
+        });
+    </script>
+
+    <button class="hover-button">Hover over me!</button>
+
+    <script>
+        const buttonHover = document.querySelector(".hover-button");
+        buttonHover.addEventListener("mouseenter", (e) => {
+            console.log("You hovered over this button");
+        });
+        buttonHover.addEventListener("mouseleave", (e) => {
+            console.log("There is no longer a hover over the button");
+        });
+    </script> -->
+
+    <!-- Practice four
+
+    <ul class="list">
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+    </ul>
+
+    <button class="add-button">Add list element</button>
+
+    <script>
+        const buttonAdd = document.querySelector(".add-button");
+        const list = document.querySelector(".list");
+        buttonAdd.addEventListener("click", (e) => {
+            const li = document.createElement("li");
+            li.textContent = "New list element";
+            list.append(li);
+        });
+    </script>
+
+    <button class="delete-button-last">Delete last element</button>
+
+    <script>
+        const buttonDelLast = document.querySelector(".delete-button-last");
+        buttonDelLast.addEventListener("click", (e) => {
+            const li = list.lastElementChild;
+            if (li) {
+                li.remove();
+            }
+        });
+    </script>
+
+    <button class="delete-button-first">Delete first list element</button>
+
+    <script>
+        const buttonDelFirst = document.querySelector(".delete-button-first");
+        buttonDelFirst.addEventListener("click", (e) => {
+            const li = list.firstElementChild;
+            if (li) {
+                li.remove();
+            }
+        });
+    </script>
+
+    <button class="button">Click me!</button>
+
+    <script>
+        const button = document.querySelector(".button");
+        button.addEventListener("click", (e) => {
+            button.classList.add("click");
+        });
+    </script> -->
+</body>
+
+</html>

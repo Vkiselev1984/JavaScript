@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 5</title>
+</head>
+
+<body>
+    <p class="super_element">Hello</p>
+    <img src="https://placeimg.com/50/50/animals" alt="">
+    <img src="https://placeimg.com/50/50/arch" alt="">
+    <img src="https://placeimg.com/50/50/nature" alt="">
+    <img src="https://placeimg.com/50/50/people" alt="">
+    <img src="https://placeimg.com/50/50/tech" alt="">
+    <img src="https://placeimg.com/50/50/tech/grayscale" alt="">
+    <img src="https://placeimg.com/50/50/tech/sepia" alt="">
+    <br>
+    <button>Button</button>
+    <button class="super_element">Button with class btn</button>
+    <button>Button</button>
+    <br>
+    <textarea></textarea>
+    <br>
+    <ul>
+        <li>
+            <button>Button 1</button>
+        </li>
+        <li>
+            <button>Button 2</button>
+        </li>
+        <li>
+            <button>Button 3</button>
+        </li>
+        <li>
+            <button>Button 4</button>
+        </li>
+    </ul>
+    <script>
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('all tags loaded');
+        });
+
+
+        window.addEventListener('load', () => {
+            console.log('page loaded');
+        });
+
+
+        document.body.addEventListener('click', (event) => {
+            const target = event.target;
+            const tagName = target.tagName.toLowerCase();
+            const hasSuperClass = target.classList.contains('super_element');
+            if (hasSuperClass) {
+                console.log(`Class "super_element" is present in element "${tagName}".`);
+            } else {
+                console.log(`Class "super_element" is not present in element "${tagName}".`);
+            }
+        });
+
+
+        const textarea = document.querySelector('textarea');
+        textarea.addEventListener('mouseover', () => {
+            console.log('You hovered over textarea.');
+        });
+
+
+        const ulElement = document.querySelector('ul');
+        ulElement.addEventListener('click', (event) => {
+            if (event.target.tagName === 'BUTTON') {
+                console.log(event.target.textContent);
+            }
+        });
+
+
+        const liElements = document.querySelectorAll('ul li');
+        liElements.forEach((li, index) => {
+            if (index % 2 === 1) {
+                li.style.backgroundColor = 'lightgrey';
+            }
+        });
+    </script>
+</body>
+
+</html>
