@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 5</title>
+    <style>
+        .error {
+            border: 2px solid red;
+            outline: none;
+            /* Remove default selection on focus */
+        }
+
+        /* Animation for appearance */
+        .animate_animated {
+            animation-duration: 1s;
+            /* Duration of animation */
+            animation-fill-mode: both;
+            /* Hold final animation state */
+        }
+
+        @keyframes fadeInLeftBig {
+            0% {
+                opacity: 0;
+                transform: translateX(-1000px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate_fadeInLeftBig {
+            animation-name: fadeInLeftBig;
+        }
+
+        .message {
+            visibility: hidden;
+            /* Hide the default message block */
+        }
+    </style>
+</head>
+
+<body>
+
+    <input id="from" type="text">
+    The input says: <span></span>
+    <br>
+    <button class="messageBtn">Show block</button>
+    <div class="message">
+        Hello :)
+    </div>
+    <br>
+    <form>
+        <label>
+            First input:
+            <input class="form-control" type="text" required>
+        </label>
+        <br><br>
+        <label>
+            Second input:
+            <select class="form-control" required>
+                <option value=""></option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+            </select>
+        </label>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        "use strict";
+
+        // 1. Display value from input to span
+        const input = document.getElementById('from');
+        const span = document.querySelector('span');
+
+        input.addEventListener('input', () => {
+            span.textContent = input.value;
+        });
+
+        // 2. Add classes and change visibility on button click
+        const messageBtn = document.querySelector('.messageBtn');
+        const message = document.querySelector('.message');
+
+        messageBtn.addEventListener('click', () => {
+            message.classList.add('animate_animated', 'animate_fadeInLeftBig');
+            message.style.visibility = 'visible';
+        });
+
+        // 3. Form validation and highlighting empty fields
+        const form = document.querySelector('form');
+        const inputs = form.querySelectorAll('.form-control');
+
+        form.addEventListener('submit', (event) => {
+            let isValid = true;
+            inputs.forEach(input => {
+                if (input.value.trim() === '') {
+                    input.classList.add('error');
+                    isValid = false;
+                } else {
+                    input.classList.remove('error'); // Remove highlighting if field is filled
+                }
+            });
+
+            if (!isValid) {
+                event.preventDefault(); // Prevent form submission if there are errors
+            }
+        });
+
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                if (input.value.trim() === '') {
+                    input.classList.add('error'); // Highlight the field if it is empty
+                } else {
+                    input.classList.remove('error'); // Remove highlighting if the field is filled
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

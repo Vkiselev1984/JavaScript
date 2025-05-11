@@ -740,3 +740,23 @@ console.log('Form data would be sent to the server here.');
   });
 </script>
 ```
+
+### Homework
+
+Given the [HTML](./homework.html) markup.
+
+#### Task
+
+Tasks:
+
+1. When the value in the <input> with id="from" changes, the value contained in it should be immediately displayed in the <span>.
+   - This means that every time the text in the input changes, the text in the <span> should be updated accordingly.
+2. When clicking on the button with the class messageBtn, you must perform the following actions for the element with the class message:
+   - Add two classes: animate_animated and animate_fadeInLeftBig.
+   - Set the visibility style to 'visible'.
+3. When submitting the form, check if all the fields are filled in.
+   - If any field is not filled in, the form should not be submitted.
+   - Unfilled fields should be highlighted (the error class is added).
+   - As soon as the user starts filling in the field, perform a check:
+     - If the field is empty, highlight it (add the error class).
+     - If the field is filled, remove the highlight (remove the error class).
