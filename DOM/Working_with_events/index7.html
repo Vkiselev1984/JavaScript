@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Event Example</title>
+</head>
+
+<body>
+
+    <pre id="rabbit">
+|\ /| 
+\|_|/ 
+/. .\
+=\_Y_/=
+{>o<}
+</pre>
+    <button>Hide the rabbit</button>
+    <script>
+        const rabbit = document.querySelector('#rabbit');
+        const button = document.querySelector('button');
+
+        rabbit.addEventListener('hide', (event) => {
+            if (confirm('Call event.preventDefault()?')) {
+                event.preventDefault();
+            }
+        });
+
+        button.addEventListener('click', () => {
+            const event = new CustomEvent('hide', { cancelable: true });
+            const defaultPrevented = !rabbit.dispatchEvent(event);
+            if (defaultPrevented) {
+                console.log('Cancelled by event handler');
+            } else {
+                rabbit.hidden = true;
+            }
+        });
+    </script>
+
+</body>
+
+</html>

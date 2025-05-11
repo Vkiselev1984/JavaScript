@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello, DOM events!</title>
+</head>
+
+<body>
+    <form name="myForm">
+        <label>Test checkbox: <input type="checkbox"></label>
+    </form>
+
+    <script>
+        const checkbox = document.querySelector('input[type=checkbox]')
+        checkbox.addEventListener('click', (event) => {
+            console.log(event.target.checked) // true
+            return false
+        })
+    </script>
+</body>
+
+</html>

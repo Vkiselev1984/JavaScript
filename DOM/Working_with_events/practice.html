@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox Form Example</title>
+</head>
+
+<body>
+
+    <form class="form">
+        <label for="checkbox">
+            <input type="checkbox" class="checkbox" />
+            I agree with the terms
+        </label>
+        <button type="submit" id="send">Send</button>
+    </form>
+    <p class="status"></p>
+
+    <script>
+        const formEl = document.querySelector(".form"); // Используем querySelector
+        const checkboxEl = formEl.querySelector(".checkbox"); // Получаем элемент чекбокса
+        const sendBtn = document.getElementById("send"); // Получаем кнопку по ID
+        const statusText = document.querySelector(".status"); // Используем querySelector
+
+        sendBtn.addEventListener("click", (event) => {
+            event.preventDefault(); // Предотвращаем отправку формы
+
+            const isChecked = checkboxEl.checked; // Проверяем состояние чекбокса
+            const message = isChecked ? 'Data sent successfully' : 'You must agree to the terms and conditions';
+            statusText.textContent = message; // Отображаем сообщение
+
+            if (isChecked) {
+                console.log('Form data would be sent to the server here.');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Button Example</title>
+</head>
+
+<body>
+
+    <h1>Choose your favorite beverage:</h1>
+
+    <label>
+        <input type="radio" name="beverage" value="tea"> Tea
+    </label><br>
+
+    <label>
+        <input type="radio" name="beverage" value="coffee"> Coffee
+    </label><br>
+
+    <button id="send">Send</button>
+
+    <p id="status"></p>
+    <p id="message"></p>
+
+    <script>
+        const sendButton = document.getElementById('send');
+        const statusText = document.getElementById('status');
+        const messageText = document.getElementById('message');
+
+        sendButton.addEventListener('click', () => {
+            const selectedBeverage = document.querySelector('input[name="beverage"]:checked');
+
+            if (selectedBeverage) {
+                statusText.textContent = `You selected: ${selectedBeverage.value}`;
+
+                if (selectedBeverage.value === 'tea') {
+                    messageText.textContent = 'The tea is over';
+                } else if (selectedBeverage.value === 'coffee') {
+                    messageText.textContent = 'The coffee is gone';
+                }
+            } else {
+                statusText.textContent = 'Please select a beverage.';
+                messageText.textContent = '';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

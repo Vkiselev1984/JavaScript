@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <form>
+        <label><input type="radio" name="propagation-control" value="stopPropagation">Stop propagation</label>
+        <label><input type="radio" name="propagation-control" value="stopImmediatePropagation">Stop Immediate
+            propagation</label>
+    </form>
+    <ul>
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+    </ul>
+    <script>
+        const form = document.forms[0]
+        const list = document.querySelector('ul')
+        list.addEventListener('click', (e) => {
+            console.log('In the first UL in the capture phase')
+            const propagationControlMethodName =
+                form.elements['propagation-control'].value
+            if (propagationControlMethodName) {
+                e[propagationControlMethodName]()
+            }
+        }, true)
+        list.addEventListener('click', () => {
+            console.log('In the second UL in the capture phase')
+        }, true)
+        list.addEventListener('click', () => {
+            console.log('In the first UL in the bubbling phase')
+        })
+        Array.from(list.children).forEach((child) => {
+            child.addEventListener('click', () => {
+                console.log('In each LI in the bubbling phase')
+            })
+        })
+    </script>
+</body>
+
+</html>

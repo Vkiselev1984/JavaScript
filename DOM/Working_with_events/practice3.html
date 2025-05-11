@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Input Example</title>
+    <style>
+        .correct {
+            border: 2px solid green;
+        }
+
+        .incorrect {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Create an Account</h1>
+
+    <form class="registrationForm" id="registrationForm">
+        <label for="password">Password:</label>
+        <input type="password" class="password" name="password" required>
+        <br><br>
+        <button type="submit" class="button">Submit</button>
+        <p class="status" id="status"></p>
+    </form>
+    <script>
+        const form = document.getElementById('registrationForm');
+        const passwordInput = document.querySelector('.password');
+        const statusText = document.getElementById('status');
+        const defaultPassword = 'password';
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const enteredPassword = passwordInput.value;
+
+            passwordInput.classList.remove('correct', 'incorrect');
+            statusText.textContent = '';
+
+            if (enteredPassword === defaultPassword) {
+                passwordInput.classList.add('correct');
+                statusText.textContent = 'Password is correct!';
+            } else {
+                passwordInput.classList.add('incorrect');
+                statusText.textContent = 'Incorrect password';
+            }
+        });
+    </script>
+</body>
+
+</html>

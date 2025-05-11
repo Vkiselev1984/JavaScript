@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 5px;
+            border: 1px solid #ccc;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Task List</h1>
+    <input type="text" id="taskInput" placeholder="Enter task">
+    <button id="addButton">Add task</button>
+    <button id="removeButton">Remove last task</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        const taskInput = document.getElementById('taskInput');
+        const addButton = document.getElementById('addButton');
+        const removeButton = document.getElementById('removeButton');
+        const taskList = document.getElementById('taskList');
+
+        // Handler for adding a task
+        addButton.addEventListener('click', () => {
+            const taskText = taskInput.value.trim();
+            if (taskText) {
+                const li = document.createElement('li');
+                li.textContent = taskText;
+                taskList.appendChild(li);
+                taskInput.value = ''; // Clear the input field
+            }
+        });
+
+        // Handler for removing the last task
+        removeButton.addEventListener('click', () => {
+            const lastTask = taskList.lastElementChild;
+            if (lastTask) {
+                lastTask.remove();
+            }
+        });
+
+        // Add a click event handler to the entire list
+        taskList.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LI') {
+                console.log('Task selected:', event.target.textContent);
+                console.log('isTrusted:', event.isTrusted);
+            }
+        });
+
+        // Programmatically adding a task
+        const programmaticAddTask = (taskText) => {
+            const eventOptions = { bubbles: true, cancelable: true };
+            const event = new Event('click', eventOptions);
+            const li = document.createElement('li');
+            li.textContent = taskText;
+            taskList.appendChild(li);
+            li.dispatchEvent(event);
+        };
+
+        // Add task programmatically after 3 seconds
+        setTimeout(() => {
+            programmaticAddTask('Programmatic task');
+        }, 3000);
+    </script>
+
+</body>
+
+</html>

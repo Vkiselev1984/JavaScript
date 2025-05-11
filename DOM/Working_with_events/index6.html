@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Event Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 5px;
+            border: 1px solid #ccc;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Task List</h1>
+    <input type="text" id="taskInput" placeholder="Enter task">
+    <button id="addButton">Add task</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        const taskInput = document.getElementById('taskInput');
+        const addButton = document.getElementById('addButton');
+        const taskList = document.getElementById('taskList');
+
+        // Function for creating a custom event
+        function createTaskEvent(task) {
+            const event = new CustomEvent('taskCompleted', {
+                detail: { task },
+                bubbles: true,
+                cancelable: true
+            });
+            return event;
+        }
+
+        // Handler for adding a task
+        addButton.addEventListener('click', () => {
+            const taskText = taskInput.value.trim();
+            if (taskText) {
+                const li = document.createElement('li');
+                li.textContent = taskText;
+                li.addEventListener('click', () => {
+                    li.classList.toggle('completed');
+                    const event = createTaskEvent(taskText);
+                    li.dispatchEvent(event);
+                });
+                taskList.appendChild(li);
+                taskInput.value = ''; // Clear the input field
+            }
+        });
+
+        // Custom event handler
+        taskList.addEventListener('taskCompleted', (event) => {
+            console.log(`Task "${event.detail.task}" was marked as completed.`);
+        });
+    </script>
+
+</body>
+
+</html>
