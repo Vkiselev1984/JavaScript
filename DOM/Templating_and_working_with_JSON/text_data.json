@@ -1,0 +1,17 @@
+[
+    {
+        "title": "First Article",
+        "content": "This is the content of the first article.",
+        "image": "https://via.placeholder.com/300"
+    },
+    {
+        "title": "Second Article",
+        "content": "This is the content of the second article.",
+        "image": "https://via.placeholder.com/300"
+    },
+    {
+        "title": "Third Article",
+        "content": "This is the content of the third article.",
+        "image": "https://via.placeholder.com/300"
+    }
+]

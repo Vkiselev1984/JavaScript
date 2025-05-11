@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Example</title>
+</head>
+
+<body>
+    <p id="user"></p>
+    <script>
+        const userInfo = '{"first_name" : "John", "last_name" : "Smith", "location" : "London"}';
+        const obj = JSON.parse(userInfo);
+        document.getElementById("user").innerHTML =
+            "Name: " + obj.first_name + " " + obj.last_name + "<br>" +
+            "Location: " + obj.location;
+    </script>
+    <!-- <script type="module">
+        import dataInfo from './data.js';
+
+        console.log(dataInfo);
+    </script> -->
+
+    <script type="module">
+
+        import dataInfo from './data.js';
+
+        // Iterate over the users array using forEach
+        dataInfo.users.forEach(user => {
+            console.log(`Name: ${user.firstName} ${user.lastName}, Age: ${user.age}, Location: ${user.location}`);
+        });
+    </script>
+</body>
+
+</html>

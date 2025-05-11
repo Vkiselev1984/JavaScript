@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Content from JSON</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .content-block {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="content"></div>
+
+    <script>
+        // Step 3: Load JSON data and create content dynamically
+        const jsonData = [
+            {
+                "title": "First Article",
+                "content": "This is the content of the first article.",
+                "image": "https://via.placeholder.com/300"
+            },
+            {
+                "title": "Second Article",
+                "content": "This is the content of the second article.",
+                "image": "https://via.placeholder.com/300"
+            },
+            {
+                "title": "Third Article",
+                "content": "This is the content of the third article.",
+                "image": "https://via.placeholder.com/300"
+            }
+        ];
+
+        const contentDiv = document.getElementById('content');
+
+        jsonData.forEach(item => {
+            // Create a content block for each item
+            const contentBlock = document.createElement('div');
+            contentBlock.classList.add('content-block');
+
+            // Create and append the title
+            const title = document.createElement('h2');
+            title.textContent = item.title;
+            contentBlock.appendChild(title);
+
+            // Create and append the content
+            const paragraph = document.createElement('p');
+            paragraph.textContent = item.content;
+            contentBlock.appendChild(paragraph);
+
+            // Create and append the image
+            const image = document.createElement('img');
+            image.src = item.image;
+            contentBlock.appendChild(image);
+
+            // Append the content block to the main content div
+            contentDiv.appendChild(contentBlock);
+        });
+    </script>
+
+</body>
+
+</html>

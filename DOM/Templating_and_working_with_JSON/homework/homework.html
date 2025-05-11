@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+    <title>Products List</title>
+    <style>
+        /* Styles as desired */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        img {
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Products List</h1>
+    <ul id="product-list">
+        <!-- Products will be added here -->
+    </ul>
+    <!-- Including data.js file -->
+    <script src="hw_data.js"></script>
+    <!-- Including script.js file -->
+    <script src="hw_script.js"></script>
+</body>
+
+</html>
